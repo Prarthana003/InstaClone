@@ -1,4 +1,4 @@
-package com.example.instagram_clone.entity;
+package com.insta.insta.models;
 
 
 
@@ -17,8 +17,8 @@ import java.sql.Timestamp;
 @TypeAlias("Posts")
 public class Posts {
 	
-	
-    public Integer postId;
+	@Id
+    public String postId;
     public String userID;
 	/*public Object _id;
     public Object get_id() {
@@ -30,13 +30,13 @@ public class Posts {
 	public String contentType;
 	public Binary image;
 	public Binary video;
-    public Timestamp timeStamp;
+//    public Timestamp timeStamp;
     //@DBRef
     public List<Integer> likes;
     
     //@DBRef
     public List<Integer> comments;
-	public Posts(Integer postId, String userID, String contentType, Binary image,Binary video, Timestamp timeStamp,
+	public Posts(String  postId, String userID, String contentType, Binary image,Binary video, Timestamp timeStamp,
 			List<Integer> likes, List<Integer> comments) {
 		super();
 		this.postId = postId;
@@ -44,7 +44,7 @@ public class Posts {
 		this.contentType = contentType;
 		this.image = image;
 		this.video=video;
-		this.timeStamp = timeStamp;
+//		this.timeStamp = timeStamp;
 		this.likes = likes;
 		this.comments = comments;
 	}
@@ -63,14 +63,14 @@ public class Posts {
 	}
 	@Override
 	public String toString() {
-		return "Posts [post_id=" + postId + ", content_type=" + contentType + ", time_stamp=" + timeStamp
+		return "Posts [post_id=" + postId + ", content_type=" + contentType
 				+ ", likes=" + likes + ", comments=" + comments + "]";
 	}
 	
-	public Integer getPostId() {
+	public String  getPostId() {
 		return postId;
 	}
-	public void setPostId(Integer postId) {
+	public void setPostId(String postId) {
 		this.postId = postId;
 	}
 	public String getContentType() {
@@ -79,12 +79,12 @@ public class Posts {
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
-	public Timestamp getTimeStamp() {
-		return timeStamp;
-	}
-	public void setTimeStamp(Timestamp timeStamp) {
-		this.timeStamp = timeStamp;
-	}
+//	public Timestamp getTimeStamp() {
+//		return timeStamp;
+//	}
+//	public void setTimeStamp(Timestamp timeStamp) {
+//		this.timeStamp = timeStamp;
+//	}
 	public List<Integer> getLikes() {
 		return likes;
 	}

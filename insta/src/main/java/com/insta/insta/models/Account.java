@@ -11,7 +11,7 @@ public class Account {
     public String type;
     public String username;
     public String password;
-    public String posts;
+    public PostList posts;
 
     // Getter for id
     public String getId() {
@@ -62,16 +62,15 @@ public class Account {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    // Getter for posts
-    public String getPosts() {
+    public PostList getPosts() {
+        PostList posts = new PostList();
         return posts;
     }
 
-    // Setter for posts
-    public void setPosts(String posts) {
+    public void setPosts(PostList posts) {
         this.posts = posts;
     }
+
 
     // Other methods (Logout, displayLiked, displayCommented, chat, search, display)...
 

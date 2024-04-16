@@ -1,4 +1,4 @@
-package com.example.instagram_clone.entity;
+package com.insta.insta.models;
 
 
 

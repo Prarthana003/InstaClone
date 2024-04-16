@@ -35,7 +35,8 @@ public class BusinessAccount extends Account implements BusinessAcc {
     // Other methods (display, payBill, updateBill, shop, displayPosts)...
 
     public void display() {
-        System.out.println(this.company + " " + this.username + " " + this.UserId + " " + this.password + " " + this.password + " " + this.bill);
+        System.out.println(this.company + " " + this.username + " " + this.UserId + " " + this.password + " " + this.password + " " + this.bill+this.posts);
+        this.posts.dispay();
     }
 
     @Override

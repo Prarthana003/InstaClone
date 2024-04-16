@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class BusinessAccountController {
@@ -24,11 +26,20 @@ public class BusinessAccountController {
         //what to do later
         // userId = getInstance();
         //BusinessAccount = businessAccountService.findByUserId(UserId)
-        BusinessAccount account = businessAccountService.findByUserId("1");
+        BusinessAccount account = businessAccountService.findByUserId("2");
         BusinessAccount account1 = account;
+        account.setUsername("someone");
         account1.display();
         return account;
     }
+
+    @GetMapping("/list")
+    public List<String> getList(){
+        BusinessAccount account = businessAccountService.findByUserId("2");
+        account.posts.dispay();
+        return account.posts.getPostList();
+    }
+
 
     @GetMapping("/pay/{userId}")
     public float getBill(@PathVariable("UserId") String UserId) {
@@ -36,6 +47,8 @@ public class BusinessAccountController {
         float bill = account.bill;
         return bill;
     }
+
+
 
     @PostMapping("/busAcc")
     public ResponseEntity<String> submitForm(@RequestBody BusinessAccount formData) {

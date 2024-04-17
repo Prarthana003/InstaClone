@@ -3,6 +3,9 @@ package com.insta.insta.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Document("Account")
 public class Account {
     @Id
@@ -12,7 +15,24 @@ public class Account {
     public String username;
     public String password;
     public PostList posts;
+    public List<String> followers;
+    public List<String> followersPostList;
 
+    public List<String> getFollowers(){
+        return this.followers;
+    }
+
+
+    public void setFollowers(){
+        this.followers = new ArrayList<String>();
+    }
+    public  void setFollowersPostList(ArrayList<String> list){
+        this.followers = list;
+    }
+
+    public void addFol(String id){
+        this.followers.add(id);
+    }
     // Getter for id
     public String getId() {
         return id;
@@ -67,6 +87,12 @@ public class Account {
         return posts;
     }
 
+    public List<String> getFollowersPostList() {
+        return followersPostList;
+    }
+
+
+
     public void setPosts(PostList posts) {
         this.posts = posts;
     }
@@ -92,6 +118,10 @@ public class Account {
 
     public void search() {
         System.out.println("Searching");
+    }
+
+    public void addPostToFollower(String id){
+        this.followersPostList.add(id);
     }
 
     public void display() {
